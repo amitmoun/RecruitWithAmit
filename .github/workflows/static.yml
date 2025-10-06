@@ -43,6 +43,9 @@ jobs:
       - name: Build
         run: npm run build
       
+      - name: Copy static assets to dist
+        run: if [ -d static ]; then cp -r static dist/static; fi
+      
       - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
       
